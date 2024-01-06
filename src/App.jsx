@@ -1,17 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createBrowserRouter,Outlet } from 'react-router-dom'
 import './App.css'
-import Homepage from './Pages/Homepage'
-import ProductDetails from './Pages/ProductDetails'
 import Error from './Pages/Error'
-import Header from './Components/Header'
+import Products from './Pages/Products'
+import Details from './Pages/Details'
+import Cart from './Pages/Cart'
 
 function App() {
 
   return (
     <>
     <div className='flex flex-col gap-10'>
-      <Header/>
+      {/* <Header/> */}
       <div className='flex justify-center items-center'>
       <Outlet/>
       </div>
@@ -28,11 +28,15 @@ export const router = createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Homepage/>
+        element:<Products/>
       },
       {
-        path:'/product/:id',
-        element:<ProductDetails/>
+        path:'/details/:id',
+        element:<Details/>
+      },
+      {
+        path:'/cart',
+        element:<Cart/>
       }
     ]
   }
